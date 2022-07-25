@@ -18,15 +18,17 @@ elif money_left > 0.5 * total_amount:
 input_count2 = input("you'd save right? how much? ")
 savings = int(input_count2)
 miscellaneous = money_left - savings
+if savings > money_left:
+    print("howw?? boss")
 if miscellaneous > savings:
     print('still remaining ' + str(miscellaneous))
-    input_answer = input("would you like to save more?" + "Y/N ")
-    if input_answer == 'Y':
+    input_answer = input("would you like to save more? " + "please input y or n ")
+    if input_answer.casefold() == 'y':
         print('great idea!')
         input_answer1 = input('how much more? ')
-        savings1 = savings + int(input_answer1)
-        print('use the remaining ' + str(miscellaneous) + " to dey alright, you've earned it!")
-    elif input_answer == 'N':
+    elif input_answer.casefold() == 'n':
         print('oh well, guess that means you have ' + str(miscellaneous) + ' for miscellaneous expenses')
-elif miscellaneous < savings:
-    print('use the remaining ' + str(miscellaneous) + " to dey alright, you've earned it!")
+savings1 = savings + int(input_answer1)
+miscellaneous_new = miscellaneous - savings1
+if miscellaneous <= savings:
+    print('use the remaining ' + str(miscellaneous_new) + " to dey alright, you've earned it!")
