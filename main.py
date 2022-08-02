@@ -4,7 +4,7 @@ while True:
         input_count = int(input('how much do you intend to spend on food? '))
         input_count1 = int(input('data nko? '))
         break
-    except:
+    except ValueError:
         print("that's not a valid option!")
 total_amount = int(input_read)
 expense = int(input_count) + int(input_count1)
@@ -25,9 +25,9 @@ if miscellaneous > savings:
     input_answer = input("would you like to save more? " + "please input y or n ")
     if input_answer.casefold() == 'y':
         print('great idea!')
-        input_answer1 = input('how much more? ')
     elif input_answer.casefold() == 'n':
         print('oh well, guess that means you have ' + str(miscellaneous) + ' for miscellaneous expenses')
+input_answer1 = int(input('how much more? '))
 savings1 = savings + int(input_answer1)
 miscellaneous_new = miscellaneous - savings1
 if miscellaneous <= savings:
